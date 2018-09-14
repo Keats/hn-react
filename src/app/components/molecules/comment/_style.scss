@@ -1,50 +1,102 @@
 .comment {
-  padding: 0 0.5rem;
-  border-left: 2px solid black;
+  padding: 0 1rem;
+  border-left: 3px solid transparent;
+  background: $dark-bg;
 
   &__meta {
-    color: color(dark-gray, dark);
+    color: white;
     margin-bottom: 10px;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    padding: 1rem 0;
   }
 
   &__content {
-    margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
+    color: white;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #FD7272;
+    }
+  }
+
+  &-0 {
+    border-color: #FD7272;
+    .comment__author {
+      color: #FD7272;
+    }
   }
 
   &-1 {
-    margin-left: 1rem;
+    border-color: #1B9CFC;
+    .comment__author {
+      color: #1B9CFC;
+    }
   }
 
   &-2 {
-    margin-left: 2rem;
+    border-color: #58B19F;
+    .comment__author {
+      color: #58B19F;
+    }
   }
 
   &-3 {
-    margin-left: 3rem;
+    border-color: #D6A2E8;
+
+    .comment__author {
+      color: #D6A2E8;
+    }
   }
 
   &-4 {
-    margin-left: 4rem;
+    border-color: #FEA47F;
+
+    .comment__author {
+      color: #FEA47F;
+    }
   }
 
   &-5 {
-    margin-left: 5rem;
+    border-color: #f5009a;
+
+    .comment__author {
+      color: #f5009a;
+    }
   }
 
   &-6 {
-    margin-left: 6rem;
+    border-color: #BDC581;
+
+    .comment__author {
+      color: #BDC581;
+    }
   }
 
   &-7 {
-    margin-left: 7rem;
+    border-color: #F8EFBA;
+
+    .comment__author {
+      color: #F8EFBA;
+    }
   }
 
   &-8 {
-    margin-left: 8rem;
+    border-color: #82589F;
+
+    .comment__author {
+      color: #82589F;
+    }
   }
 
   &-9 {
-    margin-left: 9rem;
+    border-color: #9AECDB;
+
+    .comment__author {
+      color: #9AECDB;
+    }
   }
 }

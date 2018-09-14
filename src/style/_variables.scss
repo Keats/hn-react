@@ -57,3 +57,6 @@ $colors: (
     @return map-get($colors, $name);
   }
 }
+
+$dark-bg: #191919;
+$dark-grey-bg: #2F2F2F;

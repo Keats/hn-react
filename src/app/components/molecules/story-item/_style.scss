@@ -4,7 +4,7 @@
 
   &__hostname {
     display: inline-block;
-    color: color(dark-gray, dark);
+    color: white;
     margin-left: 0.5rem;
   }
 
@@ -17,16 +17,16 @@
   }
 
   &__meta {
-    color: color(dark-gray, dark);
+    color: white;
   }
 
   &__comment-link {
     display: inline-block;
     margin-left: 0.5rem;
-    color: color(dark-gray, dark);
+    color: white;
 
     &:hover {
-      text-decoration-color: color(dark-gray, dark);
+      text-decoration-color: white;
     }
   }
 }

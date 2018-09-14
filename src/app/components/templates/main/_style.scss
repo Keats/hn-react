@@ -7,12 +7,15 @@
 
     header {
       width: 100%;
-      background-color: color(yellow, dark);
+      background-color: $dark-bg;
+      color: white;
       padding: 1rem;
     }
   }
 
   &__content {
     padding: 1rem;
+    color: white;
+    background-color: $dark-grey-bg;
   }
 }

@@ -55,6 +55,7 @@ class Story extends React.Component<IStoryProps> {
     return (
       <React.Fragment>
         <StoryItem inList={false} story={story}/>
+        <hr/>
         <div className="story__comments">
           {comments}
         </div>

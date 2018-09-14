@@ -34,13 +34,15 @@ class Comment extends React.Component<ICommentProps> {
     });
 
     return (
-      <div className={classes}>
+      <React.Fragment>
+      <div className={classes} style={{marginLeft: `${this.props.level}rem`}}>
         <div className="comment__meta">
-          {comment.by} 1 hour ago
+          <span className="comment__author">{comment.by}</span> - 1 hour ago
         </div>
         <div className="comment__content" dangerouslySetInnerHTML={innerHTML} />
-        {kids}
       </div>
+        {kids}
+      </React.Fragment>
     );
   }
 }
