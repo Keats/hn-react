@@ -9,7 +9,7 @@ import { Routes } from "./routes";
 
 // MobX strict mode
 configure({
-  enforceActions: true,
+  enforceActions: "always",
 });
 // To hook Sass in webpack
 import "../style/app.scss";

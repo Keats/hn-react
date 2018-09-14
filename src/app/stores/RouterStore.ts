@@ -1,4 +1,4 @@
-import {action, computed, observable} from "mobx";
+import {action, observable} from "mobx";
 import {State} from "router5";
 import {Store} from "./utils";
 
