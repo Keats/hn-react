@@ -24,11 +24,12 @@ export default class StoryStore extends Store {
   @observable public stories = observable.map<number, IStory>({});
   @observable public topStories = observable.array<number>([]);
 
-  public async fetchStory(id: number) {
+  public async fetchStory(id: number): Promise<IStory> {
     const story = await getItem<IStory>(id);
     runInAction("Fetching story", () => {
       this.stories.set(id, story);
     });
+    return story;
   }
 
   // Fetch all the data required to display the list of top stories:

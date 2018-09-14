@@ -7,6 +7,7 @@ import rootStore from "./stores";
 import RootStore from "./stores/RootStore";
 import { Routes } from "./routes";
 import StoriesList from "./components/pages/stories-list";
+import Story from "./components/pages/story";
 
 // MobX strict mode
 configure({
@@ -30,7 +31,7 @@ class App extends React.Component<{rootStore?: RootStore}, {}> {
         component = <StoriesList />;
         break;
       case Routes.Story:
-        component = <div>Story</div>;
+        component = <Story id={currentRoute.params.id} />;
         break;
       default:
         throw new Error("unknown route: " + currentRoute);

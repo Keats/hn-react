@@ -6,15 +6,17 @@ import { Routes } from "../../../routes";
 
 interface IStoriesListProps {
   story: IStory;
+  inList: boolean;
 }
 
 class StoryItem extends React.Component<IStoriesListProps> {
   public render() {
     const story = this.props.story;
     const hostname = this.getHostname(story);
+    const Tag = this.props.inList ? "li" : "div";
 
     return (
-      <li className="story-item">
+      <Tag className="story-item">
         <div className="story-item__title">
           {this.getStoryLink(story)}
           {hostname ? <span className="story-item__hostname">({hostname})</span> : null}
@@ -25,7 +27,7 @@ class StoryItem extends React.Component<IStoriesListProps> {
             {story.descendants} comments
           </Link>
         </div>
-      </li>
+      </Tag>
     );
   }
 

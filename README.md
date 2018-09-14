@@ -8,3 +8,9 @@ Using the API described at https://github.com/HackerNews/API
 $ yarn install
 $ yarn start
 ```
+
+
+## TODO
+- comments
+- time ago
+- 
