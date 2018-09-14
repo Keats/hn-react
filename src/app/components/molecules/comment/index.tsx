@@ -4,6 +4,7 @@ import {inject, observer} from "mobx-react";
 
 import {IComment} from "../../../stores/CommentStore";
 import RootStore from "../../../stores/RootStore";
+import {timeAgo} from "../../../utils";
 
 interface ICommentProps {
   collapsed: false;
@@ -37,7 +38,7 @@ class Comment extends React.Component<ICommentProps> {
       <React.Fragment>
       <div className={classes} style={{marginLeft: `${this.props.level}rem`}}>
         <div className="comment__meta">
-          <span className="comment__author">{comment.by}</span> - 1 hour ago
+          <span className="comment__author">{comment.by}</span> - {timeAgo(comment.time)}
         </div>
         <div className="comment__content" dangerouslySetInnerHTML={innerHTML} />
       </div>

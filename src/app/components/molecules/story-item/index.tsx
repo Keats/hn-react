@@ -3,6 +3,7 @@ import * as React from "react";
 import {IStory} from "../../../stores/StoryStore";
 import Link from "../../atoms/link";
 import { Routes } from "../../../routes";
+import {timeAgo} from "../../../utils";
 
 interface IStoriesListProps {
   story: IStory;
@@ -22,7 +23,7 @@ class StoryItem extends React.Component<IStoriesListProps> {
           {hostname ? <span className="story-item__hostname">({hostname})</span> : null}
         </div>
         <div className="story-item__meta">
-          {story.score} points by <b>{story.by}</b> 36min ago |
+          {story.score} points by <b>{story.by}</b> {timeAgo(story.time)} |
           <Link to={Routes.Story} params={{id: story.id}} className="story-item__comment-link">
             {story.descendants} comments
           </Link>
