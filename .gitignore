@@ -1,0 +1,10 @@
+/*.iml
+.idea/*
+node_modules/
+yarn.lock
+public/
+*.css
+yarn-error.log
+dist/
+.DS_Store
+.pytest_cache

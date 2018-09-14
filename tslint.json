@@ -1,0 +1,17 @@
+{
+  "extends": ["tslint:latest", "tslint-react"],
+  "rules": {
+    "quotemark": [true, "double", "avoid-escape"],
+    "array-type": [true, "generic"],
+    "jsdoc-format": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "jsx-no-multiline-js": false,
+    "no-implicit-dependencies": [true, "dev"],
+    "no-submodule-imports": [
+      true,
+      "router5/plugins/browser",
+      "react-apollo/test-utils"
+    ]
+  }
+}

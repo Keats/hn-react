@@ -1,0 +1,49 @@
+// Font stuff
+$modularscale: (
+  base: 1em,
+  ratio: 1.25
+);
+
+// https://furbo.org/2018/03/28/system-fonts-in-css/
+$font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", sans-serif;
+
+
+// Colour palette
+// Only use colours from there, with a bit of tint/shade allowed
+// for hover/active effects
+$colors: (
+  red: (
+    base: #ED5565,
+    dark: #DA4453,
+  ),
+  yellow: (
+    base: #FFCE54,
+    dark: #F6BB42,
+  ),
+  green: (
+    base: #A0D468,
+    dark: #8CC152,
+  ),
+  blue: (
+    base: #5D9CEC,
+    dark: #4A89DC,
+  ),
+  purple: (
+    base: #AC92EC,
+    dark: #967ADC,
+  ),
+  light-gray: (
+    base: #F5F7FA,
+    dark: #E6E9ED,
+  ),
+  medium-gray: (
+    base: #CCD1D9,
+    dark: #AAB2BD,
+  ),
+  dark-gray: (
+    base: #656D78,
+    dark: #434A54,
+  ),
+);
