@@ -8,4 +8,10 @@
 @import "base";
 
 
+@import "../app/components/atoms/link/style";
+
+@import "../app/components/molecules/story-item/style";
+
+@import "../app/components/pages/stories-list/style";
+
 @import "../app/components/templates/main/style";

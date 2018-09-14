@@ -3,7 +3,7 @@ import {computed, observable, runInAction} from "mobx";
 
 import {getItem, getTopStories} from "../api";
 
-interface IStory {
+export interface IStory {
   id: number;
   score: number;
   title: string;

@@ -24,7 +24,7 @@ export enum Routes {
 const appRoutes: Array<Route> = [
   // Logged-in routes
   {name: Routes.Home, path: "/"},
-  {name: Routes.Story, path: "/story/:itemId"},
+  {name: Routes.Story, path: "/story/:id"},
 ];
 
 // Router setup

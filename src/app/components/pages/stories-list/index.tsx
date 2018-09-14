@@ -3,6 +3,7 @@ import {inject, observer} from "mobx-react";
 import DevTools from "mobx-react-devtools";
 
 import Main from "../../templates/main";
+import StoryItem from "../../molecules/story-item";
 import RootStore from "../../../stores/RootStore";
 
 @inject("rootStore")
@@ -30,9 +31,11 @@ class StoriesList extends React.Component<{rootStore?: RootStore}> {
 
     const stories = this.props.rootStore!.storyStore.stories;
 
-    return storyStore.topStories.slice(0, 30).map((t) => {
-      return <div key={t}>{stories.get(t)!.title}</div>;
-    });
+    return (
+      <ol>{storyStore.topStories.slice(0, 30).map((t, i) => {
+        return <StoryItem key={t} story={stories.get(t)!}/>;
+      })}</ol>
+    );
   }
 }
 
