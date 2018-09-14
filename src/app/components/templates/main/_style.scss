@@ -1,0 +1,21 @@
+.main-ui {
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem;
+
+  &__container {
+    min-height: 100%;
+    background-color: color(light-gray);
+
+    header {
+      width: 100%;
+      background-color: color(yellow, dark);
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+  }
+
+  &__content {
+    padding: 1rem;
+  }
+}

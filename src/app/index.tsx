@@ -6,6 +6,7 @@ import { inject, observer, Provider as MobxProvider } from "mobx-react";
 import rootStore from "./stores";
 import RootStore from "./stores/RootStore";
 import { Routes } from "./routes";
+import StoriesList from "./components/pages/stories-list";
 
 // MobX strict mode
 configure({
@@ -26,7 +27,7 @@ class App extends React.Component<{rootStore?: RootStore}, {}> {
     let component = null;
     switch (currentRoute.name as Routes) {
       case Routes.Home:
-        component = <div>Home</div>;
+        component = <StoriesList />;
         break;
       case Routes.Story:
         component = <div>Story</div>;

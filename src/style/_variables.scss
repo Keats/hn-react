@@ -47,3 +47,13 @@ $colors: (
     dark: #434A54,
   ),
 );
+
+// Retrieve color from $colors map ie. `color(base, dark)`
+// If the variant is not specified, it will get the base color
+@function color($name, $variant: base) {
+  @if ($variant != null) {
+    @return map-get(map-get($colors, $name), $variant);
+  } @else {
+    @return map-get($colors, $name);
+  }
+}

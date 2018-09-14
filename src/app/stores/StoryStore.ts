@@ -1,5 +1,5 @@
 import {Store} from "./utils";
-import {action, observable} from "mobx";
+import {computed, observable, runInAction} from "mobx";
 
 import {getItem, getTopStories} from "../api";
 
@@ -22,11 +22,11 @@ interface IStory {
 
 export default class StoryStore extends Store {
   @observable public stories = observable.map<number, IStory>({});
-  @observable public topStories: Array<number> = [];
+  @observable public topStories = observable.array<number>([]);
 
   public async fetchStory(id: number) {
     const story = await getItem<IStory>(id);
-    action("Fetching story", () => {
+    runInAction("Fetching story", () => {
       this.stories.set(id, story);
     });
   }
@@ -36,12 +36,21 @@ export default class StoryStore extends Store {
   // HN display 30 stories per page, we'll do the same
   public async fetchTopStories() {
     const topStories = await getTopStories();
-    action("Fetching top stories", () => {
-      this.topStories = topStories;
+    runInAction("Fetching top stories", () => {
+      this.topStories.replace(topStories);
     });
     // the api returns up to 500 ids, no need to be worried about out of bounds
     for (let i = 0; i < 30; i++) {
       this.fetchStory(topStories[i]);
     }
   }
+
+  // 1-indexed page number of HackerNews, 0 is the frontpage
+  // Checks whether all pages have been loaded. We could also wait for
+  // all promises in `fetchTopStories` to be done
+  public isPageLoaded(pageNumber = 0): boolean {
+    const ids = this.topStories.slice(30 * pageNumber, 30 * (pageNumber + 1));
+    return ids.every((id) => this.stories.get(id) !== undefined);
+  }
+
 }
