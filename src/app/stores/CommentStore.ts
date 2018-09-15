@@ -21,6 +21,7 @@ export default class CommentStore extends Store {
   // Fetch a comment and all its kids recursively
   public async fetchComment(id: number) {
     const comment = await getItem<IComment>(id);
+
     runInAction("Fetching Comment", () => {
       this.comments.set(id, comment);
     });

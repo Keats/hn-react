@@ -55,7 +55,7 @@ class StoryItem extends React.Component<IStoriesListProps> {
       return null;
     }
 
-    return <div className="story-item__body">{story.text}</div>;
+    return <div className="story-item__body" dangerouslySetInnerHTML={{__html: story.text}} / >;
   }
 }
 

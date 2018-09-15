@@ -10,8 +10,7 @@
     "no-implicit-dependencies": [true, "dev"],
     "no-submodule-imports": [
       true,
-      "router5/plugins/browser",
-      "react-apollo/test-utils"
+      "router5/plugins/browser"
     ]
   }
 }

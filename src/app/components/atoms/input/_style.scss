@@ -1,0 +1,52 @@
+$input-color: black;
+$input-bg-color: white;
+$input-placeholder-color: color(medium-gray);
+$input-border-color: color(medium-gray);
+$input-hover-border-color: color(blue);
+$input-min-width: 250px;
+
+
+@mixin active() {
+  outline: 0;
+  border-color: $input-hover-border-color;
+}
+
+@mixin input() {
+  font-family: inherit;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  background-color: $input-bg-color;
+  background-image: none;
+  border: 2px solid $input-border-color;
+  border-radius: 4px;
+  color: $input-color;
+  transition: all 0.3s;
+  padding: 7px;
+  min-width: $input-min-width;
+  max-width: 100%;
+
+  &:hover {
+    border-color: $input-hover-border-color;
+  }
+
+  &:focus, &:active {
+    @include active;
+  }
+}
+
+// contains the label + input
+.input-container {
+  margin-bottom: 1rem;
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.input {
+  @include input;
+}
+
+.input__label {
+  display: block;
+  padding-bottom: 5px;
+}
