@@ -11,7 +11,7 @@ import Story from "./components/pages/story";
 
 // MobX strict mode
 configure({
-  enforceActions: "always",
+  enforceActions: "observed",
 });
 // To hook Sass in webpack
 import "../style/app.scss";

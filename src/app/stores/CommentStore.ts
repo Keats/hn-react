@@ -1,7 +1,7 @@
 import {Store} from "./utils";
 import {observable, runInAction} from "mobx";
 
-import {getItem, getTopStories} from "../api";
+import {getItem} from "../api";
 
 export interface IComment {
   id: number;
@@ -43,7 +43,7 @@ export default class CommentStore extends Store {
 
     return ids
       .map((id) => this.comments.get(id)!)  // not really, but to please TS
-      .filter((n) => n)
+      .filter((n) => n && n.text)  // don't display deleted/removed messages
       .sort((a, b) => b.time - a.time);
   }
 }

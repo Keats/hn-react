@@ -3,6 +3,10 @@
   border-left: 3px solid transparent;
   background: $dark-bg;
 
+  &--collapsed {
+    display: none;
+  }
+
   &__meta {
     color: white;
     margin-bottom: 10px;
@@ -21,6 +25,12 @@
     a {
       color: #FD7272;
     }
+  }
+
+  &__collapse {
+    text-align: center;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
   }
 
   &-0 {
