@@ -13,6 +13,8 @@ $ yarn install
 $ yarn start
 ```
 
+And go to `http://localhost:8080/` afterwards
+
 ## Missing
 - More than 1 page of top stories
 - Other type of feed: ask hn/show hn/etc
