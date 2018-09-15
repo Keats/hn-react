@@ -19,7 +19,7 @@ class StoryItem extends React.Component<IStoriesListProps> {
     return (
       <Tag className="story-item">
         <div className="story-item__title">
-          {this.getStoryLink(story)}
+          {this.renderStoryLink(story)}
           {hostname ? <span className="story-item__hostname">({hostname})</span> : null}
         </div>
         <div className="story-item__meta">
@@ -28,11 +28,12 @@ class StoryItem extends React.Component<IStoriesListProps> {
             {story.descendants} comments
           </Link>
         </div>
+        {this.renderStoryBody(story)}
       </Tag>
     );
   }
 
-  private getStoryLink(story: IStory) {
+  private renderStoryLink(story: IStory) {
     if (story.url) {
       return <a href={story.url} className="link">{story.title}</a>;
     }
@@ -47,6 +48,14 @@ class StoryItem extends React.Component<IStoriesListProps> {
     const a  = document.createElement("a");
     a.href = story.url;
     return a.hostname;
+  }
+
+  private renderStoryBody(story: IStory) {
+    if (this.props.inList || !story.text) {
+      return null;
+    }
+
+    return <div className="story-item__body">{story.text}</div>;
   }
 }
 
