@@ -12,3 +12,11 @@ Design is based on the dark theme of [Materialistic](https://play.google.com/sto
 $ yarn install
 $ yarn start
 ```
+
+## Missing
+- More than 1 page of top stories
+- Other type of feed: ask hn/show hn/etc
+- Author page
+
+## TODOs
+- See if using firebase SDK avoids doing 100s of HTTPS requests?
