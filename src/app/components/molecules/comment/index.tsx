@@ -59,9 +59,10 @@ class Comment extends React.Component<ICommentProps> {
       return null;
     }
 
+    const numComments = comment.kids.length;
     return (
       <div className="comment__collapse" onClick={this.toggleChildrenVisibility}>
-        {this.childrenToggled ? "Expand" : "Collapse"} {comment.kids.length} comments
+        {this.childrenToggled ? "Expand" : "Collapse"} {numComments} comment{numComments === 1 ? "" : "s"}
       </div>
     );
   }

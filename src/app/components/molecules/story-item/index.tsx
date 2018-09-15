@@ -25,7 +25,7 @@ class StoryItem extends React.Component<IStoriesListProps> {
         <div className="story-item__meta">
           {story.score} points by <b>{story.by}</b> {timeAgo(story.time)} |
           <Link to={Routes.Story} params={{id: story.id}} className="story-item__comment-link">
-            {story.descendants} comments
+            {story.descendants} comment{story.descendants === 1 ? "" : "s"}
           </Link>
         </div>
         {this.renderStoryBody(story)}
