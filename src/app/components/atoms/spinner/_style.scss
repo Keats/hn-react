@@ -1,0 +1,32 @@
+$progress-rotation-duration: 0.7s !default;
+
+@keyframes progress-circular-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.progress-circular {
+  position: relative;
+  margin: 0 auto;
+
+  svg {
+    animation: progress-circular-rotate $progress-rotation-duration linear infinite;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: center center;
+    width: 100%;
+  }
+
+  &__path {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -35px;
+    stroke-linecap: round;
+    stroke: white;
+  }
+}

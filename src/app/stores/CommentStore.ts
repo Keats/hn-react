@@ -26,13 +26,14 @@ export default class CommentStore extends Store {
       this.comments.set(id, comment);
     });
 
-    if (comment.kids && comment.kids.length > 0) {
+    if (comment && comment.kids && comment.kids.length > 0) {
       this.fetchComments(comment.kids);
     }
   }
 
   public async fetchComments(ids: Array<number>) {
-    for (const id of ids) {
+    // reverse so we don't keep changing the items at the top
+    for (const id of ids.slice().reverse()) {
       this.fetchComment(id);
     }
   }
@@ -44,7 +45,7 @@ export default class CommentStore extends Store {
 
     return ids
       .map((id) => this.comments.get(id)!)  // not really, but to please TS
-      .filter((n) => n && n.text)  // don't display deleted/removed messages
+      .filter((n) => n && n.text)  // ignore deleted comments
       .sort((a, b) => b.time - a.time);
   }
 }

@@ -5,6 +5,7 @@ import {action, observable} from "mobx";
 import StoryItem from "../../molecules/story-item";
 import Comment from "../../molecules/comment";
 import Input from "../../atoms/input";
+import Spinner from "../../atoms/spinner";
 import Main from "../../templates/main";
 import RootStore from "../../../stores/RootStore";
 import {IStory} from "../../../stores/StoryStore";
@@ -49,21 +50,31 @@ class Story extends React.Component<IStoryProps> {
     const commentStore = this.props.rootStore!.commentStore;
     const story = storyStore.stories.get(this.props.id);
 
+    // Ideally we would wait for all comments to be loaded but there are bugs in the API
+    // so we can't really do that (like with item id 16285482 which returns null on the API
+    // but a real comment on the site)
     if (!story) {
-      return "Loading";
+      return <Spinner/>;
     }
+
     const comments = commentStore.getComments(story.kids)
       .filter((c) => {
         if (this.location === "") {
           return true;
         }
-        return c.text.search(new RegExp(this.location, "i"));
+        return c.text.search(new RegExp(this.location, "i")) > -1;
+      })
+      .filter((c) => {
+        if (this.position === "") {
+          return true;
+        }
+        return c.text.search(new RegExp(this.position, "i")) > -1;
       })
       .map((c) => {
-      return (
-        <Comment key={c.id} collapsed={false} comment={c} level={0} />
-      );
-    });
+        return (
+          <Comment key={c.id} collapsed={false} comment={c} level={0}/>
+        );
+      });
 
     return (
       <React.Fragment>
@@ -93,13 +104,11 @@ class Story extends React.Component<IStoryProps> {
 
   @action
   private updateLocation = (e: React.KeyboardEvent<any>) => {
-    e.persist();
     this.location = (e.target as any).value;
   }
 
   @action
   private updatePosition = (e: React.KeyboardEvent<any>) => {
-    e.persist();
     this.position = (e.target as any).value;
   }
 }

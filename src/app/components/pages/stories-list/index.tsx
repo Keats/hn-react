@@ -4,6 +4,7 @@ import {inject, observer} from "mobx-react";
 import Main from "../../templates/main";
 import StoryItem from "../../molecules/story-item";
 import RootStore from "../../../stores/RootStore";
+import Spinner from "../../atoms/spinner";
 
 @inject("rootStore")
 @observer
@@ -24,7 +25,7 @@ class StoriesList extends React.Component<{rootStore?: RootStore}> {
     const storyStore = this.props.rootStore!.storyStore;
 
     if (!storyStore.isPageLoaded()) {
-      return "Loading";
+      return <Spinner/>;
     }
 
     const stories = this.props.rootStore!.storyStore.stories;
